@@ -2,32 +2,18 @@
 <items version="2" >
 
     <item
-        jar="/Users/demo/AndroidStudioProjects/DelChat/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jar="/Users/demo/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="/Users/demo/AndroidStudioProjects/DelChat/app/build/intermediates/pre-dexed/debug/classes-40009f2de105eb3398c7db43294cd8cb1d1927d5.jar" />
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-f33a6e1d88ffce0264096a8af9a374a7310c26b2.jar" />
     </item>
     <item
-        jar="/Users/demo/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jar="/Users/demo/Projects/SnapChat_Clone/app/libs/Parse-1.10.2.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="/Users/demo/AndroidStudioProjects/DelChat/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-08997c3324208da29bfc92440846b2adc52c4649.jar" />
-    </item>
-    <item
-        jar="/Users/demo/AndroidStudioProjects/DelChat/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="/Users/demo/AndroidStudioProjects/DelChat/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-4b2ff4a3d6ff08d165c169aa338a4d32c40f0cf0.jar" />
-    </item>
-    <item
-        jar="/Users/demo/AndroidStudioProjects/DelChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="/Users/demo/AndroidStudioProjects/DelChat/app/build/intermediates/pre-dexed/debug/classes-86646d4b9f6aa49e2ac19d0a06498f514079c60f.jar" />
+        sha1="a859414011ce2c18187acc83319688e6bd340635">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/Parse-1.10.2-0bc9fc49783b1d1a34d70a13e7d8b0c356a27eaa.jar" />
     </item>
 
 </items>

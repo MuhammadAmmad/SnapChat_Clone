@@ -14,4 +14,9 @@
     <string name="login_button_text">Login</string>
     <string name="title_activity_signup_">Sign Up</string>
     <string name="email_hint">Email</string>
+    <string name="signup_error_message">Please make sure all the fields i.e username,password,email is filled properly.</string>
+    <string name="signup_error_title">Oops!</string>
+    <string name="login_error_title">Oops!</string>
+    <string name="login_error_message">Check your username and password properly</string>
+    <string name="menu_logout_label">Logout</string>
 </resources>
