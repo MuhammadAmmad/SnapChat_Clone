@@ -57,7 +57,6 @@ public class Login_Activity extends AppCompatActivity {
                     builder.show();
                 } else {
                     //Login using username and password
-
                     ParseUser.logInInBackground(username, password, new LogInCallback() {
                         @Override
                         public void done(ParseUser user, ParseException e) {
