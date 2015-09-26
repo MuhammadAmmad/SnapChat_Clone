@@ -20,4 +20,6 @@
     <string name="menu_logout_label">Logout</string>
     <string name="no_msg_label">No new messages!</string>
     <string name="add_friends_label">Add friends to begin!</string>
+    <string name="menu_edit_friends">Edit Friends</string>
+    <string name="title_activity_edit_friends">EditFriendsActivity</string>
 </resources>

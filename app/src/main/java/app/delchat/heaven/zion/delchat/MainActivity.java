@@ -109,6 +109,10 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             moveToLogin();
             return true;
         }
+        else if (id == R.id.action_edit_friends){
+            Intent intent = new Intent(this,EditFriendsActivity.class);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }
