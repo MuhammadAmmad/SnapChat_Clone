@@ -19,4 +19,5 @@
     <string name="login_error_message">Check your username and password properly</string>
     <string name="menu_logout_label">Logout</string>
     <string name="no_msg_label">No new messages!</string>
+    <string name="add_friends_label">Add friends to begin!</string>
 </resources>

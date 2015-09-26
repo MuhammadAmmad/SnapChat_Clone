@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 /**
  * Created by Zion on 26/09/15.
  */
-public class InboxFragment extends ListFragment {
+public class FriendsFragment extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_inbox, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_friends, container, false);
         return rootView;
     }
 
