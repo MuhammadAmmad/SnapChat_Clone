@@ -21,5 +21,6 @@
     <string name="no_msg_label">No new messages!</string>
     <string name="add_friends_label">Add friends to begin!</string>
     <string name="menu_edit_friends">Edit Friends</string>
-    <string name="title_activity_edit_friends">EditFriendsActivity</string>
+    <string name="title_activity_edit_friends">Edit Friends</string>
+    <string name="error_title">We are sorry !</string>
 </resources>

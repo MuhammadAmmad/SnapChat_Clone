@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(this,getSupportFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -108,9 +108,8 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             ParseUser.logOut();
             moveToLogin();
             return true;
-        }
-        else if (id == R.id.action_edit_friends){
-            Intent intent = new Intent(this,EditFriendsActivity.class);
+        } else if (id == R.id.action_edit_friends) {
+            Intent intent = new Intent(this, EditFriendsActivity.class);
             startActivity(intent);
         }
 
@@ -131,7 +130,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
-
 
 
     /**
