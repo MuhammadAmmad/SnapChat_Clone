@@ -6,4 +6,5 @@ package app.delchat.heaven.zion.delchat;
 public final class ParseConstants {
 
     public static final String KEY_USERNAME = "username";
+    public static final String KEY_FRIEND_RELATION = "friendRelation";
 }
