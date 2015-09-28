@@ -60,7 +60,9 @@ public class EditFriendsActivity extends ListActivity {
                             EditFriendsActivity.this,
                             android.R.layout.simple_list_item_checked,
                             usernames);
+
                     setListAdapter(adapter);
+                    addFriendCheakMark();
                 } else {
                     Log.e(TAG, e.getMessage());
                     AlertDialog.Builder builder = new AlertDialog.Builder(EditFriendsActivity.this);
@@ -70,6 +72,29 @@ public class EditFriendsActivity extends ListActivity {
 
                     AlertDialog dialog = builder.create();
                     builder.show();
+                }
+            }
+        });
+    }
+
+    private void addFriendCheakMark() {
+        mFriendsRelation.getQuery() .findInBackground(new FindCallback<ParseUser>() {
+            @Override
+            public void done(List<ParseUser> friends, ParseException e) {
+                if (e == null){
+                    //Success - got the list
+                    for (int i =0; i< mUsers.size();i++){
+                        ParseUser user = mUsers.get(i);
+
+                        for (ParseUser friend : friends){
+                            if(friend.getObjectId().equals(user.getObjectId())){
+                                getListView().setItemChecked(i,true);
+                            }
+                        }
+                    }
+                }
+                else {
+                    Log.e(TAG,e.getMessage());
                 }
             }
         });
@@ -96,11 +121,12 @@ public class EditFriendsActivity extends ListActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        if (getListView().isItemChecked(position)){
+        if (getListView().isItemChecked(position)) {
 
             //Add Friends
 
@@ -114,8 +140,7 @@ public class EditFriendsActivity extends ListActivity {
                 }
 
             });
-        }
-        else {
+        } else {
             //Remove Them
         }
 
