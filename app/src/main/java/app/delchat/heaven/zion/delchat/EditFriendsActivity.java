@@ -78,23 +78,22 @@ public class EditFriendsActivity extends ListActivity {
     }
 
     private void addFriendCheakMark() {
-        mFriendsRelation.getQuery() .findInBackground(new FindCallback<ParseUser>() {
+        mFriendsRelation.getQuery().findInBackground(new FindCallback<ParseUser>() {
             @Override
             public void done(List<ParseUser> friends, ParseException e) {
-                if (e == null){
+                if (e == null) {
                     //Success - got the list
-                    for (int i =0; i< mUsers.size();i++){
+                    for (int i = 0; i < mUsers.size(); i++) {
                         ParseUser user = mUsers.get(i);
 
-                        for (ParseUser friend : friends){
-                            if(friend.getObjectId().equals(user.getObjectId())){
-                                getListView().setItemChecked(i,true);
+                        for (ParseUser friend : friends) {
+                            if (friend.getObjectId().equals(user.getObjectId())) {
+                                getListView().setItemChecked(i, true);
                             }
                         }
                     }
-                }
-                else {
-                    Log.e(TAG,e.getMessage());
+                } else {
+                    Log.e(TAG, e.getMessage());
                 }
             }
         });
