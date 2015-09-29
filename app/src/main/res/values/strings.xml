@@ -23,4 +23,5 @@
     <string name="menu_edit_friends">Edit Friends</string>
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="error_title">We are sorry !</string>
+    <string name="action_camera_label">Camera</string>
 </resources>
