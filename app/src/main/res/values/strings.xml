@@ -24,4 +24,6 @@
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="error_title">We are sorry !</string>
     <string name="action_camera_label">Camera</string>
+    <string name="error_string_storage">Found Error while accessing storage.</string>
+    <string name="error_storage_message">Problem Found While Accessing The External Storage</string>
 </resources>

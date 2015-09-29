@@ -1,7 +1,12 @@
 package app.delchat.heaven.zion.delchat;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
@@ -11,12 +16,107 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.parse.ParseUser;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener {
 
     public static final String TAG = MainActivity.class.getSimpleName();
+    public static final int TAKE_IMAGE_ACTION = 0;
+    public static final int TAKE_VIDEO_ACTION = 1;
+    public static final int CHOOSE_IMAGE_ACTION = 2;
+    public static final int CHOOSE_VIDEO_ACTION = 3;
+
+    public static final int MEDIA_TYPE_IMAGE = 4;
+    public static final int MEDIA_TYPE_VIDEO = 5;
+
+    private Uri mMediaUri;
+
+    protected DialogInterface.OnClickListener mDialogListner = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch (which) {
+                case 0: //Take Photo
+                    Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    mMediaUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE); // create a file to save the image
+                    if (mMediaUri == null){
+                        //Display The Error
+                        Toast.makeText(MainActivity.this,getString(R.string.error_storage_message),Toast.LENGTH_LONG).show();
+
+                    } else {
+                        takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mMediaUri); // set the image file name
+                        startActivityForResult(takePhotoIntent, TAKE_IMAGE_ACTION);
+                    }
+                    break;
+
+                case 1://Take Video
+                    break;
+
+                case 2://Choose Photo
+                    break;
+
+                case 3://Choose Video
+                    break;
+            }
+        }
+
+        private Uri getOutputMediaFileUri(int mediaType) {
+            // To be safe, you should check that the SDCard is mounted
+            // using Environment.getExternalStorageState() before doing this.
+            if (IsExternalStorageAvailable()) {
+                String appName =  MainActivity.this.getString(R.string.app_name );
+                //Get the external storage directory
+                File mediaStorageDir = new File(
+                        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),appName);
+
+                //create a subdirectory
+
+                if (!mediaStorageDir.exists()){
+                     if (!mediaStorageDir.mkdir()){
+                         Log.e(TAG,"Failed To Create Directory");
+                         return null;
+                     }
+                }
+                //create a file name
+                //create a file
+                File mediaFile;
+                Date now = new Date();
+                String timeStamp = new SimpleDateFormat("yyyyMMDdd_HHmmss", Locale.US).format(now);
+                String path = mediaStorageDir.getPath() + File.separator;
+                if (mediaType == MEDIA_TYPE_IMAGE){
+                    mediaFile = new File(path+"IMG_"+timeStamp+".jpg");
+                }
+                else if (mediaType == MEDIA_TYPE_VIDEO){
+                    mediaFile = new File(path+"VDO_"+timeStamp+".mp4");
+                }
+                else return null;
+                Log.d(TAG,"File Created");
+                //Return the file URI
+
+
+                return Uri.fromFile(mediaFile);
+            } else {
+                return null;
+            }
+        }
+        private boolean IsExternalStorageAvailable(){
+            String state = Environment.getExternalStorageState();
+            if(state.equals(Environment.MEDIA_MOUNTED)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    };
+
+
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -101,16 +201,23 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        int itemId = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_logout) {
-            ParseUser.logOut();
-            moveToLogin();
-            return true;
-        } else if (id == R.id.action_edit_friends) {
-            Intent intent = new Intent(this, EditFriendsActivity.class);
-            startActivity(intent);
+        switch (itemId) {
+            case R.id.action_logout:
+                ParseUser.logOut();
+                moveToLogin();
+                return true;
+
+            case R.id.action_edit_friends:
+                Intent intent = new Intent(this, EditFriendsActivity.class);
+                startActivity(intent);
+
+            case R.id.action_camera:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setItems(R.array.camera_choices, mDialogListner);
+                AlertDialog dialog = builder.create();
+                dialog.show();
         }
 
         return super.onOptionsItemSelected(item);
