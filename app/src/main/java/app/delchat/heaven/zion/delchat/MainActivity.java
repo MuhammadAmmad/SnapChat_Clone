@@ -56,6 +56,21 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                     break;
 
                 case 1://Take Video
+                    Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                    mMediaUri = getOutputMediaFileUri(MEDIA_TYPE_VIDEO);
+
+                    if (mMediaUri == null){
+                        //Display The Error
+                        Toast.makeText(MainActivity.this,getString(R.string.error_storage_message),Toast.LENGTH_LONG).show();
+
+                    }
+                    else{
+                         takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT,mMediaUri)
+                                 .putExtra(MediaStore.EXTRA_DURATION_LIMIT,10)
+                                 .putExtra(MediaStore.EXTRA_VIDEO_QUALITY,0);
+                        startActivityForResult(takeVideoIntent,TAKE_VIDEO_ACTION);
+
+                    }
                     break;
 
                 case 2://Choose Photo
@@ -180,7 +195,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                             .setTabListener(this));
         }
     }
-
     private void moveToLogin() {
         Intent intent = new Intent(this, Login_Activity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
