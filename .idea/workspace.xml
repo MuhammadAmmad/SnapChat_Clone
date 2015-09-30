@@ -6,8 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="file created" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="INFO" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -84,13 +83,29 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/app/delchat/heaven/zion/delchat/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.80472106">
-              <caret line="70" column="82" selection-start-line="70" selection-start-column="82" selection-end-line="70" selection-end-column="82" />
+            <state vertical-scroll-proportion="0.28723404">
+              <caret line="230" column="31" selection-start-line="230" selection-start-column="31" selection-end-line="230" selection-end-column="31" />
               <folding>
-                <element signature="e#1876#1917#0" expanded="true" />
-                <element signature="e#2567#2608#0" expanded="true" />
-                <element signature="e#3507#3554#0" expanded="true" />
+                <element signature="e#2036#2077#0" expanded="true" />
+                <element signature="e#2727#2768#0" expanded="true" />
+                <element signature="e#3750#3770#0" expanded="true" />
+                <element signature="e#4224#4271#0" expanded="true" />
+                <element signature="e#8824#8846#0" expanded="true" />
+                <element signature="e#9456#9485#0" expanded="true" />
+                <element signature="e#9636#9665#0" expanded="true" />
+                <element signature="e#10128#10154#0" expanded="true" />
+                <element signature="e#10582#10604#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.962963">
+              <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1590,7 +1605,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/app/delchat/heaven/zion/delchat/SectionsPagerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_friends.xml" />
         <option value="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/app/delchat/heaven/zion/delchat/Signup_Activity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_friends.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_login_.xml" />
@@ -1604,6 +1618,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/array.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/app/delchat/heaven/zion/delchat/MainActivity.java" />
       </list>
     </option>
@@ -2202,7 +2217,7 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20785597" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14729951" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18494272" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2265,18 +2280,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/app/delchat/heaven/zion/delchat/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
-          <folding>
-            <element signature="e#1876#1917#0" expanded="true" />
-            <element signature="e#2567#2608#0" expanded="true" />
-            <element signature="e#3507#3554#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login_.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2360,9 +2363,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
-            <element signature="e#1876#1917#0" expanded="true" />
-            <element signature="e#2567#2608#0" expanded="true" />
-            <element signature="e#3507#3554#0" expanded="true" />
+            <element signature="e#2036#2077#0" expanded="true" />
+            <element signature="e#2727#2768#0" expanded="true" />
+            <element signature="e#3750#3770#0" expanded="true" />
+            <element signature="e#4224#4271#0" expanded="true" />
+            <element signature="e#8824#8846#0" expanded="true" />
+            <element signature="e#9456#9485#0" expanded="true" />
+            <element signature="e#9636#9665#0" expanded="true" />
+            <element signature="e#10128#10154#0" expanded="true" />
+            <element signature="e#10582#10604#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2446,9 +2455,15 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
           <folding>
-            <element signature="e#1876#1917#0" expanded="true" />
-            <element signature="e#2567#2608#0" expanded="true" />
-            <element signature="e#3507#3554#0" expanded="true" />
+            <element signature="e#2036#2077#0" expanded="true" />
+            <element signature="e#2727#2768#0" expanded="true" />
+            <element signature="e#3750#3770#0" expanded="true" />
+            <element signature="e#4224#4271#0" expanded="true" />
+            <element signature="e#8824#8846#0" expanded="true" />
+            <element signature="e#9456#9485#0" expanded="true" />
+            <element signature="e#9636#9665#0" expanded="true" />
+            <element signature="e#10128#10154#0" expanded="true" />
+            <element signature="e#10582#10604#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2542,14 +2557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="78" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="59" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2697,14 +2704,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/22.1.0/support-v4-22.1.0-sources.jar!/android/support/v4/app/FragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3326572">
+          <caret line="815" column="16" selection-start-line="815" selection-start-column="16" selection-end-line="815" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.962963">
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/app/delchat/heaven/zion/delchat/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80472106">
-          <caret line="70" column="82" selection-start-line="70" selection-start-column="82" selection-end-line="70" selection-end-column="82" />
+        <state vertical-scroll-proportion="0.28723404">
+          <caret line="230" column="31" selection-start-line="230" selection-start-column="31" selection-end-line="230" selection-end-column="31" />
           <folding>
-            <element signature="e#1876#1917#0" expanded="true" />
-            <element signature="e#2567#2608#0" expanded="true" />
-            <element signature="e#3507#3554#0" expanded="true" />
+            <element signature="e#2036#2077#0" expanded="true" />
+            <element signature="e#2727#2768#0" expanded="true" />
+            <element signature="e#3750#3770#0" expanded="true" />
+            <element signature="e#4224#4271#0" expanded="true" />
+            <element signature="e#8824#8846#0" expanded="true" />
+            <element signature="e#9456#9485#0" expanded="true" />
+            <element signature="e#9636#9665#0" expanded="true" />
+            <element signature="e#10128#10154#0" expanded="true" />
+            <element signature="e#10582#10604#0" expanded="true" />
           </folding>
         </state>
       </provider>

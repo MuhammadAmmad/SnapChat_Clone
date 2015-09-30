@@ -21,6 +21,9 @@ import android.widget.Toast;
 import com.parse.ParseUser;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
     public static final int MEDIA_TYPE_IMAGE = 4;
     public static final int MEDIA_TYPE_VIDEO = 5;
+    public static final int FILE_SIZE_LIMIT=1024*1024*10; //10 MB
 
     private Uri mMediaUri;
 
@@ -74,9 +78,16 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                     break;
 
                 case 2://Choose Photo
+                    Intent choosePhotoIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                    choosePhotoIntent.setType("image/*");
+                    startActivityForResult(choosePhotoIntent,CHOOSE_IMAGE_ACTION);
                     break;
 
                 case 3://Choose Video
+                    Intent chooseVideoIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                    chooseVideoIntent.setType("video/*");
+                    Toast.makeText(MainActivity.this, R.string.video_limit,Toast.LENGTH_LONG).show();
+                    startActivityForResult(chooseVideoIntent, CHOOSE_VIDEO_ACTION);
                     break;
             }
         }
@@ -195,6 +206,58 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                             .setTabListener(this));
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK){
+            if (requestCode == CHOOSE_IMAGE_ACTION || requestCode==CHOOSE_VIDEO_ACTION){
+                if (data == null){
+                    Toast.makeText(this, R.string.general_error,Toast.LENGTH_LONG).show();
+                }
+                else {
+                    mMediaUri = data.getData();
+                }
+                Log.i(TAG,"Media URI:-"+ mMediaUri);
+
+                if (requestCode == CHOOSE_VIDEO_ACTION){
+                    int fileSize = 0;
+                    InputStream inputStream = null;
+                    try {
+                        inputStream = getContentResolver().openInputStream(mMediaUri);
+                        fileSize = inputStream.available();
+                    } catch (FileNotFoundException e) {
+                        Toast.makeText(this, R.string.selsected_file_error,Toast.LENGTH_LONG).show();
+                        return;
+                    } catch (IOException e) {
+                        Toast.makeText(this, R.string.selsected_file_error,Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    finally {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (fileSize>= FILE_SIZE_LIMIT){
+                        //
+                        Toast.makeText(this, R.string.greater_file_size,Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                }
+            }
+            else {
+                Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                mediaScanIntent.setData(mMediaUri);
+                sendBroadcast(mediaScanIntent);
+            }
+        }
+        else if (resultCode!=RESULT_CANCELED){
+            Toast.makeText(this,R.string.general_error,Toast.LENGTH_LONG).show();
+        }
+    }
+
     private void moveToLogin() {
         Intent intent = new Intent(this, Login_Activity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
