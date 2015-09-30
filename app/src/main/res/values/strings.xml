@@ -30,4 +30,7 @@
     <string name="video_limit">Select a video that is less then 10 MB</string>
     <string name="selsected_file_error">Their was a problem with the selected file.</string>
     <string name="greater_file_size">File Size is greater then 10 MB</string>
+    <string name="title_activity_recipient">Choose Recipients</string>
+    <string name="choose_friends">Choose SOme Friends</string>
+    <string name="action_send_label">Send</string>
 </resources>

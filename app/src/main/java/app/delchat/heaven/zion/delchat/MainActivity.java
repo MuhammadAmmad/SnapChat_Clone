@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
     public static final int MEDIA_TYPE_IMAGE = 4;
     public static final int MEDIA_TYPE_VIDEO = 5;
-    public static final int FILE_SIZE_LIMIT=1024*1024*10; //10 MB
+    public static final int FILE_SIZE_LIMIT = 1024 * 1024 * 10; //10 MB
 
     private Uri mMediaUri;
 
@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                 case 0: //Take Photo
                     Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     mMediaUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE); // create a file to save the image
-                    if (mMediaUri == null){
+                    if (mMediaUri == null) {
                         //Display The Error
-                        Toast.makeText(MainActivity.this,getString(R.string.error_storage_message),Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, getString(R.string.error_storage_message), Toast.LENGTH_LONG).show();
 
                     } else {
                         takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mMediaUri); // set the image file name
@@ -63,16 +63,15 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                     Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
                     mMediaUri = getOutputMediaFileUri(MEDIA_TYPE_VIDEO);
 
-                    if (mMediaUri == null){
+                    if (mMediaUri == null) {
                         //Display The Error
-                        Toast.makeText(MainActivity.this,getString(R.string.error_storage_message),Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, getString(R.string.error_storage_message), Toast.LENGTH_LONG).show();
 
-                    }
-                    else{
-                         takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT,mMediaUri)
-                                 .putExtra(MediaStore.EXTRA_DURATION_LIMIT,10)
-                                 .putExtra(MediaStore.EXTRA_VIDEO_QUALITY,0);
-                        startActivityForResult(takeVideoIntent,TAKE_VIDEO_ACTION);
+                    } else {
+                        takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mMediaUri)
+                                .putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10)
+                                .putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
+                        startActivityForResult(takeVideoIntent, TAKE_VIDEO_ACTION);
 
                     }
                     break;
@@ -80,13 +79,13 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                 case 2://Choose Photo
                     Intent choosePhotoIntent = new Intent(Intent.ACTION_GET_CONTENT);
                     choosePhotoIntent.setType("image/*");
-                    startActivityForResult(choosePhotoIntent,CHOOSE_IMAGE_ACTION);
+                    startActivityForResult(choosePhotoIntent, CHOOSE_IMAGE_ACTION);
                     break;
 
                 case 3://Choose Video
                     Intent chooseVideoIntent = new Intent(Intent.ACTION_GET_CONTENT);
                     chooseVideoIntent.setType("video/*");
-                    Toast.makeText(MainActivity.this, R.string.video_limit,Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, R.string.video_limit, Toast.LENGTH_LONG).show();
                     startActivityForResult(chooseVideoIntent, CHOOSE_VIDEO_ACTION);
                     break;
             }
@@ -96,18 +95,18 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             // To be safe, you should check that the SDCard is mounted
             // using Environment.getExternalStorageState() before doing this.
             if (IsExternalStorageAvailable()) {
-                String appName =  MainActivity.this.getString(R.string.app_name );
+                String appName = MainActivity.this.getString(R.string.app_name);
                 //Get the external storage directory
                 File mediaStorageDir = new File(
-                        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),appName);
+                        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), appName);
 
                 //create a subdirectory
 
-                if (!mediaStorageDir.exists()){
-                     if (!mediaStorageDir.mkdir()){
-                         Log.e(TAG,"Failed To Create Directory");
-                         return null;
-                     }
+                if (!mediaStorageDir.exists()) {
+                    if (!mediaStorageDir.mkdir()) {
+                        Log.e(TAG, "Failed To Create Directory");
+                        return null;
+                    }
                 }
                 //create a file name
                 //create a file
@@ -115,14 +114,12 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                 Date now = new Date();
                 String timeStamp = new SimpleDateFormat("yyyyMMDdd_HHmmss", Locale.US).format(now);
                 String path = mediaStorageDir.getPath() + File.separator;
-                if (mediaType == MEDIA_TYPE_IMAGE){
-                    mediaFile = new File(path+"IMG_"+timeStamp+".jpg");
-                }
-                else if (mediaType == MEDIA_TYPE_VIDEO){
-                    mediaFile = new File(path+"VDO_"+timeStamp+".mp4");
-                }
-                else return null;
-                Log.d(TAG,"File Created");
+                if (mediaType == MEDIA_TYPE_IMAGE) {
+                    mediaFile = new File(path + "IMG_" + timeStamp + ".jpg");
+                } else if (mediaType == MEDIA_TYPE_VIDEO) {
+                    mediaFile = new File(path + "VDO_" + timeStamp + ".mp4");
+                } else return null;
+                Log.d(TAG, "File Created");
                 //Return the file URI
 
 
@@ -131,17 +128,16 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                 return null;
             }
         }
-        private boolean IsExternalStorageAvailable(){
+
+        private boolean IsExternalStorageAvailable() {
             String state = Environment.getExternalStorageState();
-            if(state.equals(Environment.MEDIA_MOUNTED)){
+            if (state.equals(Environment.MEDIA_MOUNTED)) {
                 return true;
-            }
-            else{
+            } else {
                 return false;
             }
         }
     };
-
 
 
     /**
@@ -210,51 +206,51 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK){
-            if (requestCode == CHOOSE_IMAGE_ACTION || requestCode==CHOOSE_VIDEO_ACTION){
-                if (data == null){
-                    Toast.makeText(this, R.string.general_error,Toast.LENGTH_LONG).show();
-                }
-                else {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == CHOOSE_IMAGE_ACTION || requestCode == CHOOSE_VIDEO_ACTION) {
+                if (data == null) {
+                    Toast.makeText(this, R.string.general_error, Toast.LENGTH_LONG).show();
+                } else {
                     mMediaUri = data.getData();
                 }
-                Log.i(TAG,"Media URI:-"+ mMediaUri);
+                Log.i(TAG, "Media URI:-" + mMediaUri);
 
-                if (requestCode == CHOOSE_VIDEO_ACTION){
+                if (requestCode == CHOOSE_VIDEO_ACTION) {
                     int fileSize = 0;
                     InputStream inputStream = null;
                     try {
                         inputStream = getContentResolver().openInputStream(mMediaUri);
                         fileSize = inputStream.available();
                     } catch (FileNotFoundException e) {
-                        Toast.makeText(this, R.string.selsected_file_error,Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, R.string.selsected_file_error, Toast.LENGTH_LONG).show();
                         return;
                     } catch (IOException e) {
-                        Toast.makeText(this, R.string.selsected_file_error,Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, R.string.selsected_file_error, Toast.LENGTH_LONG).show();
                         return;
-                    }
-                    finally {
+                    } finally {
                         try {
                             inputStream.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
-                    if (fileSize>= FILE_SIZE_LIMIT){
+                    if (fileSize >= FILE_SIZE_LIMIT) {
                         //
-                        Toast.makeText(this, R.string.greater_file_size,Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, R.string.greater_file_size, Toast.LENGTH_LONG).show();
                         return;
                     }
                 }
-            }
-            else {
+            } else {
                 Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
                 mediaScanIntent.setData(mMediaUri);
                 sendBroadcast(mediaScanIntent);
             }
-        }
-        else if (resultCode!=RESULT_CANCELED){
-            Toast.makeText(this,R.string.general_error,Toast.LENGTH_LONG).show();
+
+            Intent recipentIntent = new Intent(this, RecipientActivity.class);
+            recipentIntent.setData(mMediaUri);
+            startActivity(recipentIntent);
+        } else if (resultCode != RESULT_CANCELED) {
+            Toast.makeText(this, R.string.general_error, Toast.LENGTH_LONG).show();
         }
     }
 
