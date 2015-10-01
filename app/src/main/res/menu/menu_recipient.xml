@@ -3,10 +3,8 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="app.delchat.heaven.zion.delchat.RecipientActivity">
     <item
-        android:id="@+id/action_send"
-        android:title="SEND"
-        android:orderInCategory="100"
-        android:icon="@drawable/ic_action_camera"
-        app:showAsAction="ifRoom"
-        android:visible="false"/>
+        android:id="@+id/action_send_button"
+        android:title="Send"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_up"/>
 </menu>
