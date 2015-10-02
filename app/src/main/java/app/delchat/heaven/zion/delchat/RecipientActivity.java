@@ -4,19 +4,23 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,10 +102,25 @@ public class RecipientActivity extends ListActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int itemId = item.getItemId();
 
-        switch (itemId){
+        switch (itemId) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+
             case R.id.action_send_button:
                 ParseObject message = createMessage();
-                //send(createMessage());
+                if (message == null) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setMessage(R.string.error_selecting_file)
+                            .setTitle(R.string.error_selecting_file_title)
+                            .setPositiveButton(android.R.string.ok, null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+                else {
+                    send(message);
+                    finish();
+                }
                 return true;
         }
 
@@ -109,19 +128,33 @@ public class RecipientActivity extends ListActivity {
     }
 
     protected ParseObject createMessage() {
-        ParseObject message = new ParseObject(ParseConstants.CLASS_MESSAGE);
-        message.put(ParseConstants.KEY_SENDER_ID,ParseUser.getCurrentUser().getObjectId());
-        message.put(ParseConstants.KEY_USERNAME,ParseUser.getCurrentUser().getUsername());
-        message.put(ParseConstants.KEY_RECIPIENT,getRecipientsIds());
-        message.put(ParseConstants.KEY_FILE_TYPE,mFileType);
+        ParseObject message = new ParseObject(ParseConstants.CLASS_MESSAGES );
+        message.put(ParseConstants.KEY_SENDER_ID, ParseUser.getCurrentUser().getObjectId());
+        message.put(ParseConstants.KEY_USERNAME, ParseUser.getCurrentUser().getUsername());
+        message.put(ParseConstants.KEY_RECIPIENT, getRecipientsIds());
+        message.put(ParseConstants.KEY_FILE_TYPE, mFileType);
 
-        return message;
+        byte[] fileBytes = FileHelper.getByteArrayFromFile(this, mMediaUri);
+
+        if (fileBytes == null) {
+            return null;
+        } else {
+            if (mFileType.equals(ParseConstants.TYPE_IMAGE)) {
+                fileBytes = FileHelper.reduceImageForUpload(fileBytes);
+            }
+
+
+            String fileName = FileHelper.getFileName(this, mMediaUri, mFileType);
+            ParseFile file = new ParseFile(fileName, fileBytes);
+            message.put(ParseConstants.KEY_FILE, file);
+            return message;
+        }
     }
 
     protected ArrayList<String> getRecipientsIds() {
         ArrayList<String> recipientsIds = new ArrayList<>();
-        for (int i=0;i< getListView().getCount();i++){
-            if (getListView().isItemChecked(i)){
+        for (int i = 0; i < getListView().getCount(); i++) {
+            if (getListView().isItemChecked(i)) {
                 recipientsIds.add(mFriends.get(i).getObjectId());
             }
         }
@@ -137,5 +170,23 @@ public class RecipientActivity extends ListActivity {
         } else {
             mSendMenuItem.setVisible(false);
         }
+    }
+    protected void send(ParseObject message) {
+        message.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    Toast.makeText(RecipientActivity.this, R.string.success_message_sent, Toast.LENGTH_LONG).show();
+                }
+                else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RecipientActivity.this);
+                    builder.setMessage(R.string.error_sending_message)
+                            .setTitle(R.string.error_sending_message_title)
+                            .setPositiveButton(android.R.string.ok, null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+            }
+        });
     }
 }

@@ -5,7 +5,7 @@ package app.delchat.heaven.zion.delchat;
  */
 public final class ParseConstants {
     // For calsss
-    public static final String CLASS_MESSAGE = "Messages";
+    public static final String CLASS_MESSAGES = "Messages";
 
 
     public static final String KEY_USERNAME = "username";

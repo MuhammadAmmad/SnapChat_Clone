@@ -33,4 +33,9 @@
     <string name="title_activity_recipient">Choose Friends</string>
     <string name="choose_friends">Choose Some Friends</string>
     <string name="action_send_label">Send</string>
+    <string name="error_selecting_file">Their was an error selection the file. Please select another file</string>
+    <string name="error_selecting_file_title">We are very sorry</string>
+    <string name="success_message_sent">Message Sent</string>
+    <string name="error_sending_message_title">Oops!</string>
+    <string name="error_sending_message">Their was an error sending the message</string>
 </resources>
