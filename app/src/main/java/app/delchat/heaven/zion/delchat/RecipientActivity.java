@@ -131,7 +131,7 @@ public class RecipientActivity extends ListActivity {
         ParseObject message = new ParseObject(ParseConstants.CLASS_MESSAGES );
         message.put(ParseConstants.KEY_SENDER_ID, ParseUser.getCurrentUser().getObjectId());
         message.put(ParseConstants.KEY_USERNAME, ParseUser.getCurrentUser().getUsername());
-        message.put(ParseConstants.KEY_RECIPIENT, getRecipientsIds());
+        message.put(ParseConstants.KEY_RECIPIENT_IDS, getRecipientsIds());
         message.put(ParseConstants.KEY_FILE_TYPE, mFileType);
 
         byte[] fileBytes = FileHelper.getByteArrayFromFile(this, mMediaUri);

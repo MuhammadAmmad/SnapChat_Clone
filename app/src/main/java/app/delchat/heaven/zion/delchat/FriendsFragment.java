@@ -70,7 +70,7 @@ public class FriendsFragment extends ListFragment {
                             .setPositiveButton(android.R.string.ok, null);
 
                     AlertDialog dialog = builder.create();
-                    builder.show();
+                    dialog.show();
                 }
             }
         });

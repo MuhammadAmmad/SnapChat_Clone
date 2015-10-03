@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     public static final int MEDIA_TYPE_VIDEO = 5;
     public static final int FILE_SIZE_LIMIT = 1024 * 1024 * 10; //10 MB
 
+
     private Uri mMediaUri;
 
     protected DialogInterface.OnClickListener mDialogListner = new DialogInterface.OnClickListener() {
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
                     mMediaUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE); // create a file to save the image
                     if (mMediaUri == null) {
                         //Display The Error
-                       Toast.makeText(MainActivity.this, getString(R.string.error_storage_message), Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, getString(R.string.error_storage_message), Toast.LENGTH_LONG).show();
 
                     } else {
                         takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, mMediaUri); // set the image file name
@@ -203,6 +204,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         }
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -250,13 +252,12 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
             recipentIntent.setData(mMediaUri);
 
             String fileType;
-            if(requestCode== CHOOSE_IMAGE_ACTION || requestCode==TAKE_IMAGE_ACTION){
+            if (requestCode == CHOOSE_IMAGE_ACTION || requestCode == TAKE_IMAGE_ACTION) {
                 fileType = ParseConstants.TYPE_IMAGE;
+            } else {
+                fileType = ParseConstants.TYPE_VIDEO;
             }
-            else {
-                fileType=ParseConstants.TYPE_VIDEO;
-            }
-            recipentIntent.putExtra(ParseConstants.KEY_FILE_TYPE,fileType);
+            recipentIntent.putExtra(ParseConstants.KEY_FILE_TYPE, fileType);
             startActivity(recipentIntent);
         } else if (resultCode != RESULT_CANCELED) {
             Toast.makeText(this, R.string.general_error, Toast.LENGTH_LONG).show();
