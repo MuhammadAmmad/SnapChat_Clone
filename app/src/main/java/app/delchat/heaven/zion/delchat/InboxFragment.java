@@ -16,6 +16,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,8 +25,8 @@ import java.util.List;
 
 public class InboxFragment extends ListFragment {
 
-    protected List<ParseObject>  mMessages;
-    public static final String TAG =InboxFragment.class.getSimpleName();
+    protected List<ParseObject> mMessages;
+    public static final String TAG = InboxFragment.class.getSimpleName();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +34,7 @@ public class InboxFragment extends ListFragment {
         View rootView = inflater.inflate(R.layout.fragment_inbox, container, false);
         return rootView;
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -52,11 +54,15 @@ public class InboxFragment extends ListFragment {
                         username[i] = message.getString(ParseConstants.KEY_USERNAME);
                         i++;
                     }
-                    MessageAdapter adapter = new MessageAdapter(
-                            getListView().getContext(),
-                            mMessages
-                    );
-                    setListAdapter(adapter);
+                    if (getListView().getAdapter() == null) {
+                        MessageAdapter adapter = new MessageAdapter(
+                                getListView().getContext(),
+                                mMessages);
+                        setListAdapter(adapter);
+                    } else {
+                        //refill the adapter
+                        ((MessageAdapter) getListView().getAdapter()).refill(mMessages);
+                    }
                 }
             }
         });
@@ -69,18 +75,29 @@ public class InboxFragment extends ListFragment {
         String messageType = message.getString(ParseConstants.KEY_FILE_TYPE);
         ParseFile file = message.getParseFile(ParseConstants.KEY_FILE);
         Uri fileUri = Uri.parse(file.getUrl());
-        if (messageType.equals(ParseConstants.TYPE_IMAGE)){
+        if (messageType.equals(ParseConstants.TYPE_IMAGE)) {
 
             //Show Image
-            Intent intent = new Intent(getActivity(),ViewImage.class);
+            Intent intent = new Intent(getActivity(), ViewImage.class);
             intent.setData(fileUri);
             startActivity(intent);
-        }
-        else {
+        } else {
             // Show Video
-            Intent intent = new Intent(Intent.ACTION_VIEW,fileUri);
-            intent.setDataAndType(fileUri,"video/*");
+            Intent intent = new Intent(Intent.ACTION_VIEW, fileUri);
+            intent.setDataAndType(fileUri, "video/*");
             startActivity(intent);
+        }
+        List<String> ids = message.getList(ParseConstants.KEY_RECIPIENT_IDS);
+        if (ids.size() == 1) {
+            //Delete Whole Thing
+            message.deleteInBackground();
+        } else {
+            //Delete Specific
+            ArrayList<String> idToRemove = new ArrayList<String>();
+            idToRemove.add(ParseUser.getCurrentUser().getObjectId());
+            message.removeAll(ParseConstants.KEY_RECIPIENT_IDS, idToRemove);
+
+            message.saveInBackground();
         }
     }
 }
