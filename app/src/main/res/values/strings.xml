@@ -38,4 +38,5 @@
     <string name="success_message_sent">Message Sent</string>
     <string name="error_sending_message_title">Oops!</string>
     <string name="error_sending_message">Their was an error sending the message</string>
+    <string name="title_activity_view_image">View</string>
 </resources>

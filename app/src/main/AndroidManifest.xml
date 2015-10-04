@@ -42,14 +42,22 @@
             android:label="@string/title_activity_edit_friends"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar">
+            android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar" >
         </activity>
         <activity
             android:name=".RecipientActivity"
             android:label="@string/title_activity_recipient"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar" >
+        </activity>
+        <activity
+            android:name=".ViewImage"
             android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
-            android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar">
+            android:label="@string/title_activity_view_image"
+            android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar" >
+
         </activity>
     </application>
 

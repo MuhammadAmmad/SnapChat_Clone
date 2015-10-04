@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/demo/Projects/SnapChat_Clone/app/libs/commons-io-2.4.jar"
+        jar="/Users/demo/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
-        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/commons-io-2.4-ba35e4e801689f8553c5ce73b4da4e2933ec80f4.jar" />
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-27ff9b9b2bfe11b0e45ce1588e7fef7fbf380f21.jar" />
     </item>
 
 </items>
