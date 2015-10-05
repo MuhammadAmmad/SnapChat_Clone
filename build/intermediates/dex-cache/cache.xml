@@ -2,11 +2,74 @@
 <items version="2" >
 
     <item
+        jar="/Users/demo/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-d3cd75cd0b7d8b6b18c87d1bab352ecf30ee980b.jar" />
+    </item>
+    <item
+        jar="/Users/demo/Projects/SnapChat_Clone/app/libs/commons-io-2.4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/commons-io-2.4-ba35e4e801689f8553c5ce73b4da4e2933ec80f4.jar" />
+    </item>
+    <item
+        jar="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/classes-e41cc82b93c1692cf4842a1e649592162d61f705.jar" />
+    </item>
+    <item
+        jar="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/classes-e7bfbb9319f49e5296161710fc4d107904a9c6d4.jar" />
+    </item>
+    <item
+        jar="/Users/demo/Projects/SnapChat_Clone/app/libs/Parse-1.10.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a859414011ce2c18187acc83319688e6bd340635">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/Parse-1.10.2-0bc9fc49783b1d1a34d70a13e7d8b0c356a27eaa.jar" />
+    </item>
+    <item
+        jar="/Users/demo/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-f33a6e1d88ffce0264096a8af9a374a7310c26b2.jar" />
+    </item>
+    <item
         jar="/Users/demo/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
         <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-27ff9b9b2bfe11b0e45ce1588e7fef7fbf380f21.jar" />
+    </item>
+    <item
+        jar="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/classes-3de6d02939e69f20988bffbbcfedf64a42e14a76.jar" />
+    </item>
+    <item
+        jar="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-407d4360f669a9450d840eb74aabaeffd4852cf8.jar" />
+    </item>
+    <item
+        jar="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c6d79137693d494dee16372d3921f919eb724ced">
+        <dex dex="/Users/demo/Projects/SnapChat_Clone/app/build/intermediates/pre-dexed/debug/classes-7f35430c54ead4af125d18a795b8513ef07b4198.jar" />
     </item>
 
 </items>

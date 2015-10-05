@@ -161,6 +161,10 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+        //getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         ParseUser curentUser = ParseUser.getCurrentUser();
 
         if (curentUser == null) {

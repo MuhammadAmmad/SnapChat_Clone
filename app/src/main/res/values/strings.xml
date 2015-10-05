@@ -10,7 +10,7 @@
     <string name="title_activity_login_">Login</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
-    <string name="login_button_text">Login</string>
+    <string name="login_button_text">SIGN IN</string>
     <string name="title_activity_signup_">Sign Up</string>
     <string name="email_hint">Email</string>
     <string name="signup_error_message">Please make sure all the fields i.e username,password,email is filled properly.</string>
@@ -39,4 +39,5 @@
     <string name="error_sending_message_title">Oops!</string>
     <string name="error_sending_message">Their was an error sending the message</string>
     <string name="title_activity_view_image">View</string>
+    <string name="create_account_label">Don\'t have an account? Sign Up!</string>
 </resources>

@@ -29,17 +29,20 @@
         <activity
             android:name=".Login_Activity"
             android:label="@string/title_activity_login_"
+            android:icon="@mipmap/ic_launcher"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Signup_Activity"
             android:label="@string/title_activity_signup_"
+            android:icon="@mipmap/ic_launcher"
             android:parentActivityName=".Login_Activity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".EditFriendsActivity"
             android:label="@string/title_activity_edit_friends"
+            android:icon="@mipmap/ic_launcher"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar" >
@@ -47,6 +50,7 @@
         <activity
             android:name=".RecipientActivity"
             android:label="@string/title_activity_recipient"
+            android:icon="@mipmap/ic_launcher"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar" >
@@ -54,6 +58,7 @@
         <activity
             android:name=".ViewImage"
             android:screenOrientation="portrait"
+            android:icon="@mipmap/ic_launcher"
             android:parentActivityName=".MainActivity"
             android:label="@string/title_activity_view_image"
             android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar" >
