@@ -27,7 +27,7 @@ public class ViewImage extends Activity {
             public void run() {
                 finish();
             }
-        },10*1000); // 10 Seconds
+        },15*1000); // 15 Seconds
     }
 
 }
