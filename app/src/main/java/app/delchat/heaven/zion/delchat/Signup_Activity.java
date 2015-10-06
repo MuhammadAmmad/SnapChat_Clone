@@ -19,6 +19,7 @@ public class Signup_Activity extends AppCompatActivity {
     protected EditText mPassword;
     protected EditText mEmail;
     protected Button mSignUpButton;
+    protected Button mCancleButton;
     private ProgressBar progressBar;
 
     @Override
@@ -81,6 +82,14 @@ public class Signup_Activity extends AppCompatActivity {
                         }
                     });
                 }
+            }
+        });
+        mCancleButton = (Button)findViewById(R.id.cancle_button);
+        mCancleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Signup_Activity.this,Login_Activity.class);
+                startActivity(intent);
             }
         });
     }
