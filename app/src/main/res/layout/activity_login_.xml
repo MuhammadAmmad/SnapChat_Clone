@@ -4,94 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_fill"
+    style="@style/AuthBackground"
     tools:context="app.delchat.heaven.zion.delchat.Login_Activity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:scaleType="fitStart"
-        android:src="@drawable/background"/>
+        style="@style/AuthBackgroundImage"/>
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text="ChatUp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/white"
-        android:textSize="60dp"
-        android:textStyle="bold"/>
+        style="@style/AuthTitle"/>
 
     <TextView
         android:id="@+id/subTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
-        android:text="Self Distruction Chat App"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/white"
-        android:textSize="13dp"
-        android:textStyle="bold"/>
+        style="@style/AuthSubTitle"/>
 
     <LinearLayout
         android:id="@+id/editTextLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/subTitle"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/login_vertical_margin"
-        android:background="@android:color/white"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/login_vertical_padding"
-        android:paddingLeft="@dimen/login_horizontal_padding"
-        android:paddingRight="@dimen/login_horizontal_padding"
-        android:paddingTop="@dimen/login_vertical_padding">
+        style="@style/AuthFieldContainer">
 
         <EditText
             android:id="@+id/usernameField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:hint="@string/username_hint"
-            android:textSize="17sp"
-            android:ems="10"
-            android:textColorHint="@color/lightGray"
-            android:textColor="@color/text_color"/>
+            style="@style/AuthEditText"/>
+
         <EditText
             android:id="@+id/passwordField"
-            android:layout_width="match_parent"
+            style="@style/AuthEditText"
             android:inputType="textPassword"
-            android:ems="10"
-            android:layout_height="wrap_content"
-            android:hint="@string/password_hint"
-            android:textSize="17sp"
-            android:textColor="@color/text_color"/>
+            android:hint="@string/password_hint"/>
 
     </LinearLayout>
 
 
     <Button
         android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editTextLayout"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:background="@drawable/button_custom"
         android:text="@string/login_button_text"
-        android:textColor="@color/text_color"
-        android:textSize="13sp"/>
+        style="@style/AuthSubmitButton"/>
 
     <TextView
         android:id="@+id/signup_text"
@@ -100,6 +49,7 @@
         android:layout_below="@id/login_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
+        android:textColor="@android:color/white"
         android:text="@string/create_account_label"/>
 
 
