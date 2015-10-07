@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DelChat</string>
+    <string name="app_name">ChatUp</string>
 
     <string name="title_section1">Inbox</string>
     <string name="title_section2">Friends</string>
