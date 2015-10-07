@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/AuthBackground"
-    tools:context="app.delchat.heaven.zion.delchat.Login_Activity">
+    tools:context="app.delchat.heaven.zion.delchat.app.delchat.heaven.zion.delchat.ui.Login_Activity">
 
     <ImageView
         android:id="@+id/imageView"

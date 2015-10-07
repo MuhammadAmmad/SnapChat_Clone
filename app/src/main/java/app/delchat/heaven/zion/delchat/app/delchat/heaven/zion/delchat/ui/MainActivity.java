@@ -1,4 +1,4 @@
-package app.delchat.heaven.zion.delchat;
+package app.delchat.heaven.zion.delchat.app.delchat.heaven.zion.delchat.ui;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -27,6 +27,10 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import app.delchat.heaven.zion.delchat.utilities.ParseConstants;
+import app.delchat.heaven.zion.delchat.R;
+import app.delchat.heaven.zion.delchat.adapters.SectionsPagerAdapter;
 
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
 

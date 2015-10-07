@@ -1,4 +1,4 @@
-package app.delchat.heaven.zion.delchat;
+package app.delchat.heaven.zion.delchat.app.delchat.heaven.zion.delchat.ui;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.widget.ProgressBar;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
+
+import app.delchat.heaven.zion.delchat.R;
 
 public class Signup_Activity extends AppCompatActivity {
 

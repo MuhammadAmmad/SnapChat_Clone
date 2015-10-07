@@ -1,4 +1,4 @@
-package app.delchat.heaven.zion.delchat;
+package app.delchat.heaven.zion.delchat.utilities;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

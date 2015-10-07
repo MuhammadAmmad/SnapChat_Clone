@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="app.delchat.heaven.zion.delchat.EditFriendsActivity">
+                tools:context="app.delchat.heaven.zion.delchat.app.delchat.heaven.zion.delchat.ui.EditFriendsActivity">
 
 
     <ListView

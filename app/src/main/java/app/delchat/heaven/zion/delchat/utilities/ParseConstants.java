@@ -1,4 +1,4 @@
-package app.delchat.heaven.zion.delchat;
+package app.delchat.heaven.zion.delchat.utilities;
 
 /**
  * Created by Zion on 27/09/15.

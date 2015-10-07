@@ -10,9 +10,14 @@
         <item name="actionModeSplitBackground">@drawable/cab_background_bottom_chatup</item>
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Chatup</item>
         <item name="android:actionOverflowButtonStyle">@style/Theme.Chatup.Overflow</item>
-
-
+        <item name="android:listViewStyle">@style/Theme.Chatup.LigthPurpleBackground</item>
+        <item name="android:gridViewStyle">@style/Theme.Chatup.LigthPurpleBackground</item>
+        
     </style>
+    <style name="Theme.Chatup.LigthPurpleBackground">
+        <item name="android:background">@color/light_purple_background</item>
+    </style>
+    
     <style name="Theme.Chatup.Overflow" parent="@android:style/Widget.ActionButton.Overflow">
         <item name="android:src">@drawable/ic_menu_overflow</item>
     </style>

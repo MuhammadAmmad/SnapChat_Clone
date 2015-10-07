@@ -1,29 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@android:color/transparent">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/messageIcon"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/message_list_item_vertical_margin"
-        android:paddingBottom="@dimen/message_list_item_vertical_margin"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/ic_image"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/senderLabel1"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/messageIcon"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/message_list_item_vertical_margin"
-        android:paddingBottom="@dimen/message_list_item_vertical_margin"/>
-</RelativeLayout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/inbox_horizontal_margin"
+                    android:layout_marginRight="@dimen/inbox_horizontal_margin"
+                    android:layout_marginTop="@dimen/inbox_vertical_margin"
+                    android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/messageIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:src="@drawable/ic_image"
+            android:layout_above="@+id/timeLabel"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/senderLabel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/messageIcon"
+            android:paddingBottom="@dimen/message_vertical_padding"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/message_vertical_padding"
+            android:text="Medium Text"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/timeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/message_vertical_padding"
+            android:layout_below="@+id/senderLabel1"
+            android:text="Time"
+            android:textSize="12sp"
+            android:textColor="@color/lightGray"/>
+    </RelativeLayout>
+</LinearLayout>

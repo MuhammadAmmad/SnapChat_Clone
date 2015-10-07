@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.Chatup">
         <activity
-            android:name=".MainActivity"
+            android:name=".app.delchat.heaven.zion.delchat.ui.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -27,38 +27,38 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login_Activity"
+            android:name=".app.delchat.heaven.zion.delchat.ui.Login_Activity"
             android:label="@string/title_activity_login_"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Signup_Activity"
+            android:name=".app.delchat.heaven.zion.delchat.ui.Signup_Activity"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/title_activity_signup_"
-            android:parentActivityName=".Login_Activity"
+            android:parentActivityName=".app.delchat.heaven.zion.delchat.ui.Login_Activity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".EditFriendsActivity"
+            android:name=".app.delchat.heaven.zion.delchat.ui.EditFriendsActivity"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/title_activity_edit_friends"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".app.delchat.heaven.zion.delchat.ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar">
         </activity>
         <activity
-            android:name=".RecipientActivity"
+            android:name=".app.delchat.heaven.zion.delchat.ui.RecipientActivity"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/title_activity_recipient"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".app.delchat.heaven.zion.delchat.ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar">
         </activity>
         <activity
-            android:name=".ViewImage"
+            android:name=".app.delchat.heaven.zion.delchat.ui.ViewImage"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/title_activity_view_image"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".app.delchat.heaven.zion.delchat.ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar">
 

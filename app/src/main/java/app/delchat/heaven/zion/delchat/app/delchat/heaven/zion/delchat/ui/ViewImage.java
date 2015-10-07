@@ -1,4 +1,4 @@
-package app.delchat.heaven.zion.delchat;
+package app.delchat.heaven.zion.delchat.app.delchat.heaven.zion.delchat.ui;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -9,6 +9,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import app.delchat.heaven.zion.delchat.R;
 
 public class ViewImage extends Activity {
 

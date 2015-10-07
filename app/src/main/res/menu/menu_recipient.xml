@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="app.delchat.heaven.zion.delchat.RecipientActivity">
+      tools:context="app.delchat.heaven.zion.delchat.app.delchat.heaven.zion.delchat.ui.RecipientActivity">
     <item
         android:id="@+id/action_send_button"
         android:title="Send"

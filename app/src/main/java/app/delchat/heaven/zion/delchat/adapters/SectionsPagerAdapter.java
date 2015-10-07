@@ -1,4 +1,4 @@
-package app.delchat.heaven.zion.delchat;
+package app.delchat.heaven.zion.delchat.adapters;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -6,6 +6,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.Locale;
+
+import app.delchat.heaven.zion.delchat.R;
+import app.delchat.heaven.zion.delchat.app.delchat.heaven.zion.delchat.ui.FriendsFragment;
+import app.delchat.heaven.zion.delchat.app.delchat.heaven.zion.delchat.ui.InboxFragment;
 
 /**
  * A {@link FragmentPagerAdapter} that returns a fragment corresponding to

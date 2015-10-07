@@ -1,4 +1,4 @@
-package app.delchat.heaven.zion.delchat;
+package app.delchat.heaven.zion.delchat.app.delchat.heaven.zion.delchat.ui;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -16,6 +16,9 @@ import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
 import java.util.List;
+
+import app.delchat.heaven.zion.delchat.utilities.ParseConstants;
+import app.delchat.heaven.zion.delchat.R;
 
 /**
  * Created by Zion on 26/09/15.

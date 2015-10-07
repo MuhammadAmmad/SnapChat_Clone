@@ -1,4 +1,4 @@
-package app.delchat.heaven.zion.delchat;
+package app.delchat.heaven.zion.delchat.app.delchat.heaven.zion.delchat.ui;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -24,6 +24,10 @@ import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import app.delchat.heaven.zion.delchat.utilities.FileHelper;
+import app.delchat.heaven.zion.delchat.utilities.ParseConstants;
+import app.delchat.heaven.zion.delchat.R;
 
 public class RecipientActivity extends ListActivity {
 
