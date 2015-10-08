@@ -11,11 +11,15 @@
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Chatup</item>
         <item name="android:actionOverflowButtonStyle">@style/Theme.Chatup.Overflow</item>
         <item name="android:listViewStyle">@style/Theme.Chatup.LigthPurpleBackground</item>
-        <item name="android:gridViewStyle">@style/Theme.Chatup.LigthPurpleBackground</item>
+        <item name="android:gridViewStyle">@style/Theme.Chatup.LigthPurpleBackground.GridView</item>
         
     </style>
     <style name="Theme.Chatup.LigthPurpleBackground">
         <item name="android:background">@color/light_purple_background</item>
+    </style>
+
+    <style name="Theme.Chatup.LigthPurpleBackground.GridView">
+        <item name="android:padding">@dimen/user_grid_specing</item>
     </style>
     
     <style name="Theme.Chatup.Overflow" parent="@android:style/Widget.ActionButton.Overflow">
