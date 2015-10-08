@@ -1,7 +1,7 @@
 package app.delchat.heaven.zion.delchat.app.delchat.heaven.zion.delchat.ui;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -9,8 +9,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -25,11 +28,12 @@ import com.parse.SaveCallback;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.delchat.heaven.zion.delchat.R;
+import app.delchat.heaven.zion.delchat.adapters.UserAdapter;
 import app.delchat.heaven.zion.delchat.utilities.FileHelper;
 import app.delchat.heaven.zion.delchat.utilities.ParseConstants;
-import app.delchat.heaven.zion.delchat.R;
 
-public class RecipientActivity extends ListActivity {
+public class RecipientActivity extends Activity {
 
     public static final String TAG = RecipientActivity.class.getSimpleName();
     protected List<ParseUser> mFriends;
@@ -37,17 +41,22 @@ public class RecipientActivity extends ListActivity {
     protected ParseUser mCurrentUser;
     protected Uri mMediaUri;
     protected String mFileType;
+    protected GridView mGridView;
 
     protected MenuItem mSendMenuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipient);
-        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-
+        setContentView(R.layout.user_grid);
+        mGridView = (GridView) findViewById(R.id.friendsGrid);
+        mGridView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        mGridView.setOnItemClickListener(mOnItemClickListener);
         mMediaUri = getIntent().getData();
         mFileType = getIntent().getExtras().getString(ParseConstants.KEY_FILE_TYPE);
+
+        TextView emptyTextView = (TextView)findViewById(android.R.id.empty);
+        mGridView.setEmptyView(emptyTextView);
     }
 
     @Override
@@ -70,12 +79,13 @@ public class RecipientActivity extends ListActivity {
                         usernames[i] = user.getUsername();
                         i++;
                     }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                            getListView().getContext(),
-                            android.R.layout.simple_list_item_checked,
-                            usernames);
 
-                    setListAdapter(adapter);
+                    if (mGridView.getAdapter() == null) {
+                        UserAdapter adapter = new UserAdapter(RecipientActivity.this, mFriends);
+                        mGridView.setAdapter(adapter);
+                    } else {
+                        ((UserAdapter) mGridView.getAdapter()).refill(mFriends);
+                    }
                 } else {
 
                     Log.e(TAG, e.getMessage());
@@ -85,7 +95,7 @@ public class RecipientActivity extends ListActivity {
                             .setPositiveButton(android.R.string.ok, null);
 
                     AlertDialog dialog = builder.create();
-                    builder.show();
+                    dialog.show();
                 }
             }
         });
@@ -120,8 +130,7 @@ public class RecipientActivity extends ListActivity {
                             .setPositiveButton(android.R.string.ok, null);
                     AlertDialog dialog = builder.create();
                     dialog.show();
-                }
-                else {
+                } else {
                     send(message);
                     finish();
                 }
@@ -132,7 +141,7 @@ public class RecipientActivity extends ListActivity {
     }
 
     protected ParseObject createMessage() {
-        ParseObject message = new ParseObject(ParseConstants.CLASS_MESSAGES );
+        ParseObject message = new ParseObject(ParseConstants.CLASS_MESSAGES);
         message.put(ParseConstants.KEY_SENDER_ID, ParseUser.getCurrentUser().getObjectId());
         message.put(ParseConstants.KEY_USERNAME, ParseUser.getCurrentUser().getUsername());
         message.put(ParseConstants.KEY_RECIPIENT_IDS, getRecipientsIds());
@@ -157,32 +166,21 @@ public class RecipientActivity extends ListActivity {
 
     protected ArrayList<String> getRecipientsIds() {
         ArrayList<String> recipientsIds = new ArrayList<>();
-        for (int i = 0; i < getListView().getCount(); i++) {
-            if (getListView().isItemChecked(i)) {
+        for (int i = 0; i < mGridView.getCount(); i++) {
+            if (mGridView.isItemChecked(i)) {
                 recipientsIds.add(mFriends.get(i).getObjectId());
             }
         }
         return recipientsIds;
     }
 
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
-        if (l.getCheckedItemCount() > 0) {
-            mSendMenuItem.setVisible(true);
-        } else {
-            mSendMenuItem.setVisible(false);
-        }
-    }
     protected void send(ParseObject message) {
         message.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
                     Toast.makeText(RecipientActivity.this, R.string.success_message_sent, Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RecipientActivity.this);
                     builder.setMessage(R.string.error_sending_message)
                             .setTitle(R.string.error_sending_message_title)
@@ -193,4 +191,27 @@ public class RecipientActivity extends ListActivity {
             }
         });
     }
+
+    protected AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            if (mGridView.getCheckedItemCount() > 0) {
+                mSendMenuItem.setVisible(true);
+            } else {
+                mSendMenuItem.setVisible(false);
+            }
+
+            ImageView checkImageView = (ImageView) view.findViewById(R.id.checkImageView);
+            if (mGridView.isItemChecked(position)) {
+
+                //Add Recipients
+
+                checkImageView.setVisibility(View.VISIBLE);
+
+            } else {
+                //Remove Recipients
+                checkImageView.setVisibility(View.INVISIBLE);
+            }
+        }
+    };
 }
